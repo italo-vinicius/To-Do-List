@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function userAuth(Request $request)
+    public function userAuth(AuthRequest $request)
     {
         $this->validate($request, []);
         $person = User::all()->where('email','=', $request->email)->first;
