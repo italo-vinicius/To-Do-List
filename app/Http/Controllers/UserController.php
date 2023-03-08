@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AuthRequest;
 use App\Http\Requests\StoreController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -27,7 +26,7 @@ class UserController extends Controller
     public function store(StoreController $request)
     {
 
-        $this->validate($request,[]);
+        $this->validate($request, []);
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -37,9 +36,10 @@ class UserController extends Controller
     }
 
 
-    public function show(){
+    public function show()
+    {
 
-     //
+        //
     }
 
 
