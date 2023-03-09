@@ -6,17 +6,22 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Task extends Model
 {
     use HasFactory;
 
-    protected $table = 'posts';
+    protected $table = 'tasks';
 
     protected $fillable = [
+        'user_id',
         'title',
         'task',
         'done',
         'done_at',
+    ];
+
+    protected $casts = [
+      'done' => 'boolean'
     ];
 
     public function done()
@@ -25,5 +30,10 @@ class Post extends Model
             'done' => true,
             'done_at' => Carbon::now()
         ]);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

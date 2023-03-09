@@ -12,6 +12,7 @@ class UserController extends Controller
 
     public function index()
     {
+        //Renderiza a página de login
 
         return view('login');
     }
@@ -19,12 +20,15 @@ class UserController extends Controller
 
     public function create()
     {
+        //Renderiza o formulário para criação de um novo usuário
+
         return view('createUser');
     }
 
 
     public function store(UserRequest $request)
     {
+        //Metodo Post para criação de usuário
 
         $this->validate($request, []);
         $user = new User();
@@ -35,28 +39,4 @@ class UserController extends Controller
         return redirect()->route('user.index');
     }
 
-
-    public function show()
-    {
-
-        //
-    }
-
-
-    public function edit(User $user)
-    {
-        //
-    }
-
-
-    public function update(Request $request, User $user)
-    {
-        //
-    }
-
-
-    public function destroy(User $user)
-    {
-        //
-    }
 }
