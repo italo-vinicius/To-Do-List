@@ -42,4 +42,10 @@ class TaskController extends Controller
         $task->save();
         return redirect()->route('home', $user->id);
     }
+
+    public function deleteTask(User $user, Task $task_id)
+    {
+        $task_id->delete();
+        return redirect()->route('home', [$user->id]);
+    }
 }
