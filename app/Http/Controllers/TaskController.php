@@ -7,7 +7,7 @@ use App\Http\Requests\TaskRequest;
 use App\Models\Task;
 use App\Models\User;
 use App\Repositories\TaskRepository;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class TaskController extends Controller
 {
@@ -29,7 +29,6 @@ class TaskController extends Controller
             return redirect()->back();
         }
 
-
     }
 
 
@@ -39,14 +38,11 @@ class TaskController extends Controller
         return view('tasks', ['user' => $user]);
     }
 
+
     public function createTask(TaskRequest $request, User $user)
     {
         $this->validate($request, []);
-        $task = new Task();
-        $task->user_id = $user->id;
-        $task->title = $request->title;
-        $task->task = $request->task;
-        $task->save();
+        $this->repository->saveTask($request, $user);
         return redirect()->route('home', $user->id);
     }
 
