@@ -5,25 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{{asset('css/tasks.css')}}">
     <title>Tasks</title>
-    <style> body {
-            background-color: #2d3748
-        }
-
-        h1 {
-            color: aquamarine
-        }
-
-        h2 {
-            color: aquamarine
-        }
-
-        nav {
-            color: #e5e7eb;
-            font-family: Arial, monospace;
-            text-align: right;
-        }
-    </style>
 </head>
 
 <body>
@@ -33,10 +16,11 @@
     <form action="{{route('deleteTask', ['user'=>$user->id ,'task_id' => $task->id])}}" method="post">
         @csrf
         @method('delete')
-        <li style="color: aqua">{{$task['task']}}
-            <input type="submit" value="Deletar">
-        </li>
-
+        <ul>
+            <li>{{$task['title']}}: {{$task['task']}}
+                <input class="submit" type="submit" value="Deletar">
+            </li>
+        </ul>
     </form>
 @endforeach
 

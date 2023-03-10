@@ -1,0 +1,28 @@
+body {
+    background-color: #2d3748
+}
+
+h1 {
+    color: aquamarine
+}
+
+h2 {
+    color: aquamarine
+}
+
+nav {
+    color: #e5e7eb;
+    font-family: Arial, monospace;
+    text-align: right;
+}
+
+li {
+    color: aqua;
+    font-size: 30px;
+}
+
+.submit {
+    background-color: #ef4444;
+    border-radius: 25px;
+}
+
