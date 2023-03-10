@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
     <title>Login</title>
 </head>
 <body style="text-align: center">
@@ -24,9 +25,10 @@
             <input type="submit" value="Entrar">
         </div>
     </form>
+    <br><br>
 
     <a href="{{route('user.create')}}">
-         <input type="submit" value="Criar Novo Usuário">
+         <input class="input-button" type="submit" value="Criar Novo Usuário">
     </a>
 </body>
 </html>

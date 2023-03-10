@@ -7,7 +7,6 @@ use App\Http\Requests\TaskRequest;
 use App\Models\Task;
 use App\Models\User;
 use App\Repositories\TaskRepository;
-use Illuminate\Validation\ValidationException;
 
 class TaskController extends Controller
 {
@@ -30,7 +29,6 @@ class TaskController extends Controller
         }
 
     }
-
 
     public function home(User $user)
     {
