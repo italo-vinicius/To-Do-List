@@ -6,23 +6,30 @@ use App\Http\Requests\AuthRequest;
 use App\Http\Requests\TaskRequest;
 use App\Models\Task;
 use App\Models\User;
+use App\Repositories\TaskRepository;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
+    private TaskRepository $repository;
+
+    public function __construct(TaskRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function userAuth(AuthRequest $request)
     {
         //Valida usuário e redireciona para a pagina de tasks
-
-        $this->validate($request, []);
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            $person = User::all()->where('email', '=', $request->email)->first;
+        try {
+            $this->validate($request, []);
+            $person = $this->repository->authUser($request);
             return redirect()->route('home', $person->id);
-        } else {
-            return 'Deu erro ai meu bom..dá um back ai e tenta de novo';
+        } catch (\Exception) {
+            return redirect()->back();
         }
+
+
     }
 
 
