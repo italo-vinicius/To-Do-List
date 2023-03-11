@@ -13,10 +13,11 @@ class TaskRepository
     {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return User::all()->where('email', '=', $credentials['email'])->first;
+            return User::where('email', $credentials['email'])->first();
         }
-
+        return null;
     }
+
 
     public function saveTask($request, $user)
     {

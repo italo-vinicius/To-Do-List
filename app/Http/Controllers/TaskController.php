@@ -19,20 +19,24 @@ class TaskController extends Controller
 
     public function userAuth(AuthRequest $request)
     {
-        //Valida usuário e redireciona para a pagina de tasks
-        try {
-            $this->validate($request, []);
-            $person = $this->repository->authUser($request);
-            return redirect()->route('home', $person->id);
-        } catch (\Exception) {
-            return redirect()->back();
+        $validated = $request->validated();
+        if (!$validated) {
+            return redirect()->back()->withErrors($request->errors())->withInput();
         }
 
+        try {
+            $person = $this->repository->authUser($request);
+
+            return redirect()->route('home', $person->id)->with('success', 'Login realizado com sucesso!');
+
+        } catch (\Exception $exception) {
+            return redirect()->back()->withErrors([$exception->getMessage()])->withInput();
+        }
     }
+
 
     public function home(User $user)
     {
-
         return view('tasks', ['user' => $user]);
     }
 

@@ -9,26 +9,25 @@
     <title>Login</title>
 </head>
 <body style="text-align: center">
-    <h1>Entrar</h1>
+<h1>Entrar</h1>
 
-    <form action="{{route('userAuth')}}" method="get">
-        @csrf
-        <div>
-            EMAIL: <input type="email" name="email" placeholder="Email">
-        </div>
-        <br>
-        <div>
-            SENHA: <input type="password" name="password" placeholder="Senha">
-        </div>
-        <br>
-        <div>
-            <input type="submit" value="Entrar">
-        </div>
-    </form>
-    <br><br>
-
-    <a href="{{route('user.create')}}">
-         <input class="input-button" type="submit" value="Criar Novo Usuário">
-    </a>
+<form action="{{route('userAuth')}}" method="get">
+    @csrf
+    <div>
+        EMAIL: <input type="email" name="email" placeholder="Email">
+    </div>
+    <br>
+    <div>
+        SENHA: <input type="password" name="password" placeholder="Senha">
+    </div>
+    <br>
+    <div>
+        <input type="submit" value="Entrar">
+        <a href="{{route('user.create')}}">
+            <input class="input-button" type="button" value="Criar Novo Usuário">
+        </a>
+    </div>
+</form>
 </body>
 </html>
+

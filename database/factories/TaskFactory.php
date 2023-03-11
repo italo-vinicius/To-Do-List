@@ -17,7 +17,7 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'=> User::factory()->create()->id=1,
+            'user_id'=> User::factory()->create(),
             'title' => fake()->sentence(4),
             'task' => fake()->sentence(12),
             'done' => false,

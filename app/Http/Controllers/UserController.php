@@ -28,15 +28,16 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-        //Metodo Post para criação de usuário
-
-        $this->validate($request, []);
+        $validated = $request->validated();
         $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->password = Hash::make($validated['password']);
         $user->save();
+
         return redirect()->route('user.index');
     }
+
+
 
 }

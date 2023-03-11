@@ -13,15 +13,15 @@
         <form action="{{route('user.store')}}" method="post">
             @csrf
             <div>
-                NOME: <input type="text" name="name" placeholder="Nome">
+                NOME:<input type="text" name="name" placeholder="Nome">
             </div>
             <br>
             <div>
-                EMAIL: <input type="email" name="email" placeholder="Email">
+                EMAIL:<input type="email" name="email" placeholder="Email">
             </div>
             <br>
             <div>
-                SENHA: <input type="password" name="password" placeholder="Senha">
+                SENHA:<input type="password" name="password" placeholder="Senha">
             </div>
             <br>
             <div>
