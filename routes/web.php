@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,6 +16,6 @@ Route::post('usuario/{user}/tasks/criar', [TaskController::class, 'createTask'])
 Route::get('usuario/{user}/tasks', [TaskController::class, 'home'])->name('home');
 Route::delete('usuario/{user}/tasks/{task_id}', [TaskController::class, 'deleteTask'])->name('deleteTask');
 
-Route::get('/users/{user:id}', function (\App\Models\User $user) {
+Route::get('/users/{user:id}', function (User $user) {
     return $user->tasks()->get();
 });

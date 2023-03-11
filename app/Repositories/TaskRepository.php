@@ -19,7 +19,7 @@ class TaskRepository
     }
 
 
-    public function saveTask($request, $user)
+    public function saveTask($request, $user): void
     {
         $task = new Task();
         $task->user_id = $user->id;
