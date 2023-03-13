@@ -54,3 +54,5 @@ class TaskController extends Controller
         return redirect()->route('home', [$user->id]);
     }
 }
+
+//TODO: verificar se posso limpar ainda mais o controller

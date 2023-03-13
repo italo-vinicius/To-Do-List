@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class TaskRepository
 {
 
-    public function authUser($request)
+    public function authUser($request): ?User
     {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
